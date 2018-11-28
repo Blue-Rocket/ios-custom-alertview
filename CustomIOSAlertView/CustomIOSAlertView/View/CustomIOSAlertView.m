@@ -27,6 +27,7 @@ CGFloat buttonSpacerHeight = 0;
 @synthesize buttonTitles;
 @synthesize useMotionEffects;
 @synthesize closeOnTouchUpOutside;
+@synthesize buttonColor;
 
 - (id)initWithParentView: (UIView *)_parentView
 {
@@ -48,6 +49,8 @@ CGFloat buttonSpacerHeight = 0;
         useMotionEffects = false;
         closeOnTouchUpOutside = false;
         buttonTitles = @[@"Close"];
+        buttonColor = [UIColor colorWithRed:0.0f green:0.5f blue:1.0f alpha:1.0f];
+
         
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 
@@ -261,8 +264,7 @@ CGFloat buttonSpacerHeight = 0;
         [closeButton setTag:i];
 
         [closeButton setTitle:[buttonTitles objectAtIndex:i] forState:UIControlStateNormal];
-        [closeButton setTitleColor:[UIColor colorWithRed:0.0f green:0.5f blue:1.0f alpha:1.0f] forState:UIControlStateNormal];
-        [closeButton setTitleColor:[UIColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:0.5f] forState:UIControlStateHighlighted];
+        [closeButton setTitleColor:buttonColor forState:UIControlStateNormal];
         [closeButton.titleLabel setFont:[UIFont boldSystemFontOfSize:14.0f]];
         closeButton.titleLabel.numberOfLines = 0;
         closeButton.titleLabel.textAlignment = NSTextAlignmentCenter;
